@@ -56,10 +56,7 @@ public class Program {
     }
 
     private static double getAverageAge() {
-        double totalAge = 0;
-        for (Person person : people) {
-            totalAge += person.getAge();
-        }
+        double totalAge = people.stream().mapToDouble(Person::getAge).sum();
         double averageAge = totalAge / people.size();
         System.out.println("Average age of people: " + averageAge);
         return averageAge;
